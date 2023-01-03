@@ -37,7 +37,9 @@ function success(position){
 }
 
 function error(){
-    alert('posisi tidak dapat diakses');
+    // jika tidak mengijinkan browser untuk mengakses lokasi maka akan menggunakan lokasi jakarta
+    // default menggunakan latitude dan longtitude Jakarta
+    prayerTimes('-6.200000','106.816666');
 }
 
 function userLocation(){
