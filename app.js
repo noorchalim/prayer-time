@@ -1,15 +1,18 @@
 function prayerTimes(latitude, longitude){
-    fetch('http://api.aladhan.com/v1/calendar?latitude='+latitude+'&longitude='+longitude+'&method=2')
+    // API digunakan untuk perhitungan waktu sholat menggunakan referensi mekah
+    fetch('http://api.aladhan.com/v1/calendar?latitude='+latitude+'&longitude='+longitude+'&method=4')
     .then(response => response.json())
     .then(function(response){
         let date = new Date();
         let today = date.getDate() - 1;
         let data = response.data[0].timings;
 
+        // membuat table
         let app = document.getElementById('app');
         let table = document.createElement('table');
         let tableTbody = document.createElement('Tbody');
 
+        // looping table
         for(i in data){
             let row = tableTbody.insertRow();
             let name = row.insertCell(0);
@@ -18,7 +21,7 @@ function prayerTimes(latitude, longitude){
             time.innerHTML = data[i];
             tableTbody.appendChild(row);
             
-        }
+        }        
         table.appendChild(tableTbody);
         app.appendChild(table);
 
