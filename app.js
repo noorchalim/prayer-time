@@ -44,7 +44,7 @@ function error(){
 
 function userLocation(){
     if(!navigator.geolocation){
-        alert('browser tidak mendukung geolocation');
+        alert('bGeoLocation tidak didukung oleh browser anda silahkan gunakan browser lain');
     }else{
         navigator.geolocation.getCurrentPosition(success, error);
     }
